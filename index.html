@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <title>Decision Maker</title>
+    <meta name="description" content="
+    Use our decision maker online tool to make decisions like a pro in no time.">
+    <meta name="keywords" content="Easy decision maker, Decision Online Tool, Decision Maker, Decision maker online yes or no, decision tools software">
+    <title>Power up Your Decision: The Ultimate Tool</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -137,8 +138,8 @@
         }
 
         .btnadd {
-            background-color: #81D8D0;
-            color: #2196F3;
+            background-color: #67b2f0;
+            color: white;
 
             /* White text color */
             padding: 10px 20px;
@@ -167,15 +168,15 @@
             box-sizing: border-box;
         }
 
-        .svgTrash {
+        .svgTrashButton {
             scale: 40%;
             margin: 0px, 0px, 0px, 0px;
             padding: -100px;
         }
 
         .btnchoose {
-            background-color: #77D970;
-            color: #4CAF50;
+            background-color: #69d661;
+            color: white;
             /* White text color */
             padding: 10px 20px;
             /* Padding for better spacing */
@@ -198,8 +199,8 @@
         }
 
         .btnrestart {
-            background-color: #FFF59D;
-            color: #FFC107;
+            background-color: #FFC107;
+            color: white;
             /* White text color */
             padding: 10px 20px;
             /* Padding for better spacing */
@@ -233,14 +234,15 @@
             /* font-weight: bold; */
             padding: 20px;
             background-color: #6ccc71;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: #fff;
-            
+
             margin: 0;
         }
 
-        h1 a{
-            text-decoration: none; color: #fff;
+        h1 a {
+            text-decoration: none;
+            color: #fff;
         }
 
         @media screen and (min-width: 768px) {
@@ -255,13 +257,18 @@
             .btns {
                 justify-self: normal;
                 margin: 10px;
-                
+
                 /* Align items to the start of the grid cell */
             }
-            .btns{width: 98%;}
+
+            .btns {
+                width: 98%;
+            }
         }
 
-        h1{font-size: 355x;}
+        h1 {
+            font-size: 355x;
+        }
     </style>
 </head>
 
@@ -282,8 +289,8 @@
                 <div class="options">
                     <div class="option">
                         <input type="text" name="option1" placeholder="Option 1" required>
-                        <button type="button" onclick="removeOption(this)">
-                            <div class="svgTrash"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                        <button type="button" aria-label="remove Button" onclick="removeOption(this)">
+                            <div class="svgTrashButton"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     id="delete">
                                     <path
                                         d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z">
@@ -294,8 +301,8 @@
                     </div>
                     <div class="option">
                         <input type="text" name="option2" placeholder="Option 2" required>
-                        <button type="button" onclick="removeOption(this)">
-                            <div class="svgTrash"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
+                        <button type="button" aria-label="remove Button" onclick="removeOption(this)">
+                            <div class="svgTrashButton"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px"
                                     id="delete">
                                     <path
                                         d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z">
@@ -334,8 +341,8 @@
                 newOption.innerHTML = `
                         <input type="text" name="option${optionCount + 1}" placeholder="Option ${optionCount + 1}" required>
                         
-                        <button type="button" onclick="removeOption(this)">
-<div class="svgTrash"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
+                        <button type="button" aria-label="remove Button" onclick="removeOption(this)">
+<div class="svgTrashButton"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
                     `;
                 optionsDiv.appendChild(newOption);
                 optionCount++;
@@ -382,27 +389,35 @@
 
 
         function chooseYesNo() {
+            const options = document.querySelectorAll('.options .option');
 
-
-
-            const options = document.querySelectorAll('.options .option')
             if (options.length === 2) {
-                const randomIndex = Math.floor(Math.random() * 2);
-                const chosenOption = options[randomIndex];
-                options.forEach(option => option.classList.add('hidden'));
-                chosenOption.classList.remove('hidden');
-                const inputField = chosenOption.querySelector('input');
-                answer.classList.remove("hidden")
-                optionLabel.classList.remove("show")
-                answer.classList.add("show")
-                optionLabel.classList.add("hidden")
-                inputField.value = randomIndex === 0 ? 'Yes' : 'No';
+                let bothFilled = false;
+                options.forEach(option => {
+                    if (!option.querySelector('input').value.trim()) {
+                        bothFilled = true;
+                    }
+                });
 
-
+                if (bothFilled) {
+                    const randomIndex = Math.floor(Math.random() * 2);
+                    const chosenOption = options[randomIndex];
+                    options.forEach(option => option.classList.add('hidden'));
+                    chosenOption.classList.remove('hidden');
+                    const inputField = chosenOption.querySelector('input');
+                    answer.classList.remove("hidden")
+                    optionLabel.classList.remove("show")
+                    answer.classList.add("show")
+                    optionLabel.classList.add("hidden")
+                    inputField.value = randomIndex === 0 ? 'Yes' : 'No';
+                } else {
+                    chooseOption(); // If more than 2 options, fall back to regular random selection
+                }
             } else {
                 chooseOption(); // If more than 2 options, fall back to regular random selection
             }
         }
+
 
         function restart() {
             const optionsDiv = document.querySelector('.options');
@@ -414,16 +429,16 @@
             firstOption.innerHTML = `
                     <input type="text" name="option1" placeholder="Option 1" required>
                     
-                    <button type="button" onclick="removeOption(this)">
-<div class="svgTrash"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
+                    <button type="button" aria-label="remove Button" onclick="removeOption(this)">
+<div class="svgTrashButton"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
                 `;
             optionsDiv.appendChild(firstOption);
             const secondOption = document.createElement('div');
             secondOption.className = 'option';
             secondOption.innerHTML = `
                     <input type="text" name="option2" placeholder="Option 2" required>
-                    <button type="button" onclick="removeOption(this)">
-<div class="svgTrash"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
+                    <button type="button" aria-label="remove Button" onclick="removeOption(this)">
+<div class="svgTrashButton"><svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" id="delete"><path d="M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg></div></button>
                 `;
             optionsDiv.appendChild(secondOption);
             optionCount = 2;
